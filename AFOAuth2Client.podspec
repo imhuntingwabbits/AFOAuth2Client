@@ -1,29 +1,18 @@
 Pod::Spec.new do |s|
-  s.name     = 'AFOAuth2Client'
-  s.version  = '0.1.2'
-  s.license  = 'MIT'
-  s.summary  = 'AFNetworking Extension for OAuth 2 Authentication.'
-  s.homepage = 'https://github.com/AFNetworking/AFOAuth2Client'
-  s.author   = { 'Mattt Thompson' => 'm@mattt.me' }
-  s.source   = { :git => 'https://github.com/AFNetworking/AFOAuth2Client.git',
-                 :tag => '0.1.2' }
-  s.source_files = 'AFOAuth2Client'
+  s.name         = "AFOAuth2Client"
+  s.version      = "0.1.2"
+  s.summary      = "OAuth2 client for AFNetworking."
+  s.homepage     = "https://github.com/AFNetworking/AFOAuth2Client"
+  s.license      = 'MIT'
+  s.authors          = { 'Mattt Thompson' => 'm@mattt.me' }
+  s.source   = { :git => 'https://github.com/AFNetworking/AFOAuth2Client.git', :tag => "0.1.2" }
   s.requires_arc = true
 
-  s.dependency 'AFNetworking', '~>1.3'
+  s.ios.deployment_target = '6.0'
+  s.osx.deployment_target = '10.8'
+  
+  s.public_header_files = 'AFOAuth2Client/*.h'
+  s.source_files = 'AFOAuth2Client/AFOAuth2Client.h'
+  s.dependency 'AFNetworking', '~> 2.0.3'
 
-  s.ios.frameworks = 'Security'
-
-  s.prefix_header_contents = <<-EOS
-#ifdef __OBJC__
-  #import <Security/Security.h>
-  #if __IPHONE_OS_VERSION_MIN_REQUIRED
-    #import <SystemConfiguration/SystemConfiguration.h>
-    #import <MobileCoreServices/MobileCoreServices.h>
-  #else
-    #import <SystemConfiguration/SystemConfiguration.h>
-    #import <CoreServices/CoreServices.h>
-  #endif
-#endif /* __OBJC__*/
-EOS
 end
